@@ -10,16 +10,23 @@ class GoalsController < ApplicationController
 
   def new
     @goal = Goal.new
+    @like = @goal.likes.build
   end
 
   def create
     @goal = Goal.new(goal_params)
+    if @goal.valid?
+      @goal.save
+      redirect_to @goal
+    else
+      render :new
+    end
   end
 
   private
 
   def goal_params
-    params.require(:goal).permit(:title)
+    params.require(:goal).permit(:title, likes_attributes: [:description, :timeline])
   end
 
 end
