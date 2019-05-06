@@ -8,11 +8,16 @@
 
 User.destroy_all
 Goal.destroy_all
+Like.destroy_all
 
-lige = User.find_or_create_by(first_name: "Lige", last_name: "Williamson", username: "lige", bio: "I'm a cool guy and I want to do a lot of stuff", email: "lige@flatiron.com")
+lige = User.create(first_name: "Lige", last_name: "Williamson", username: "lige", bio: "I'm a cool guy and I want to do a lot of stuff", email: "lige@flatiron.com")
 
-# lige_goal = Goal.find_or_create_by(title: "Grand Canyon", description: "I really want to go", timeline: DateTime.new(2020), user_id: lige.id)
+tina = User.create(first_name: "Tina", last_name: "Cristobal", username: "cristicriso", bio: "I likes things", email: "tina@flatiron.com")
 
-lige_goal = lige.goals.build(title: "Grand Canyon", description: "I really want to go", timeline: DateTime.new(2020))
+jc = User.create(first_name: "JC", last_name: "Chang", username: "jchizzle", bio: "Haaayyoo", email: "jc@flatiron.com")
 
-lige.save
+grand_c = Goal.create(title: "Grand Canyon")
+
+lige_like = Like.create(user_id: lige.id, goal_id: grand_c.id, description: "I really want to go", timeline: DateTime.new(2020))
+
+tc_like = Like.create(user_id: tina.id, goal_id: grand_c.id, description: "This is cool", timeline: DateTime.new(2020))

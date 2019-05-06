@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_06_164454) do
+ActiveRecord::Schema.define(version: 2019_05_06_190010) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -27,9 +27,6 @@ ActiveRecord::Schema.define(version: 2019_05_06_164454) do
 
   create_table "goals", force: :cascade do |t|
     t.string "title"
-    t.string "description"
-    t.datetime "timeline"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,6 +36,8 @@ ActiveRecord::Schema.define(version: 2019_05_06_164454) do
     t.integer "goal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "description"
+    t.datetime "timeline"
   end
 
   create_table "steps", force: :cascade do |t|
