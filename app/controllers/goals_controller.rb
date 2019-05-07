@@ -14,6 +14,7 @@ class GoalsController < ApplicationController
   end
 
   def create
+    byebug
     @goal = Goal.new(goal_params)
     if @goal.valid?
       @goal.save
@@ -26,7 +27,7 @@ class GoalsController < ApplicationController
   private
 
   def goal_params
-    params.require(:goal).permit(:title, likes_attributes: [:description, :timeline])
+    params.require(:goal).permit(:title, likes_attributes: [:description, "timeline(1i)", "timeline(2i)", "timeline(3i)", :user_id])
   end
 
 end
