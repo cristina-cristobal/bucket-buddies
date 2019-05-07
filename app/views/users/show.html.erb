@@ -6,7 +6,10 @@ Bio: <%= @user.bio %><br>
 Email: <%= @user.email %><br>
 
 <h2><%= @user.first_name %>'s Goals:</h2>
-<ul><% @user.goals.each do |goal| %>
-<li><%= link_to goal.title, goal_path(goal)%></li>
+<ul><% @user.likes.each do |like| %>
+<li><%= link_to like.goal.title, goal_path(like.goal)%>
+  <p>Description: <%= like.description %></p>
+  <p>To Be Completed By: <%= like.stringify_timeline %> 
+</li>
 <% end %>
 </ul>
