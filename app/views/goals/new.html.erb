@@ -3,12 +3,6 @@
 <%= form_for @goal do |g| %>
   <%= g.label :title %>
   <%= g.text_field :title %><br>
-  <%= g.fields_for :likes, @goal.likes.build do |l| %>
-    <%= l.label :description %>
-    <%= l.text_area :description %><br>
-    <%= l.label :timeline, "Complete By" %>
-    <%= l.date_select(:timeline, :order => [:month, :day, :year]) %><br>
-    <%= l.hidden_field :user_id, value: session[:user_id] %>
-  <% end %>
+  <%= render "add", g: g %>
   <%= g.submit %>
 <% end %>

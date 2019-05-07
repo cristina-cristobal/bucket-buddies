@@ -5,12 +5,13 @@ class SessionsController < ApplicationController
   end
 
   def create
+
     @user = User.find_by(username: params[:username].downcase)
-    if @user
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to @user
     else
-      flash["notice"] = "Sorry, that user was not found"
+      flash["notice"] = "Incorrect username or password!"
       render :new
     end
   end

@@ -14,7 +14,7 @@ class GoalsController < ApplicationController
   end
 
   def create
-    @goal = Goal.new(goal_params)
+    @goal = Goal.new(goal_params(:title, likes_attributes: [:description, "timeline(1i)", "timeline(2i)", "timeline(3i)", :user_id]))
     if @goal.valid?
       @goal.save
       redirect_to @goal
@@ -23,10 +23,20 @@ class GoalsController < ApplicationController
     end
   end
 
+  def edit
+    @goal = Goal.find(params[:id])
+  end
+
+  def update
+    @goal = Goal.find(params[:id])
+    @goal.update(goal_params(likes_attributes: [:description, "timeline(1i)", "timeline(2i)", "timeline(3i)", :user_id]))
+    redirect_to @goal
+  end
+
   private
 
-  def goal_params
-    params.require(:goal).permit(:title, likes_attributes: [:description, "timeline(1i)", "timeline(2i)", "timeline(3i)", :user_id])
+  def goal_params(*args)
+    params.require(:goal).permit(*args)
   end
 
 end
