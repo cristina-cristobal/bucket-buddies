@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_07_171703) do
+ActiveRecord::Schema.define(version: 2019_05_07_213159) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -43,10 +43,12 @@ ActiveRecord::Schema.define(version: 2019_05_07_171703) do
   create_table "steps", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.datetime "date_time"
+    t.datetime "start_time"
     t.integer "goal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "location"
+    t.datetime "end_time"
   end
 
   create_table "users", force: :cascade do |t|

@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   post "/logout", to: "sessions#destroy"
   get "/goals/:id/add", to: "goals#edit", as: "add"
+  get '/', to: "home#home", as: "home"
 end

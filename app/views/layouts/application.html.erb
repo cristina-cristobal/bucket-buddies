@@ -8,7 +8,6 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
-
 <% if session[:user_id] %>
 Welcome <%= get_current_user.username %>!
 <%= link_to "Your Profile", user_path(session[:user_id]) %>
