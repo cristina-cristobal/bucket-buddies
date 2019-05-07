@@ -1,26 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1) Add Categories (not manually, probably in checkboxes)
 
-Things you may want to cover:
+2) Add Steps
 
-* Ruby version
+3) Confirmation upon deletion of goal (e.g., new page with text or alert/pop-up)
 
-* System dependencies
+4) Redirect to existing goal pages from new goal page
 
-* Configuration
+5) Goal show page has flash notice of user/password login...
 
-* Database creation
+6) Look up route url
 
-* Database initialization
+7) Add home page
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-* likes connection isn't working when creating a new goal (fix 5/7)
+8) Add user portal
