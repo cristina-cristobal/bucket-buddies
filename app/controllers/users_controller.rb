@@ -7,9 +7,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params(:username, :email))
-
-
+    @user = User.new(user_params(
+                         :username,
+                         :email,
+                         :password,
+                         :password_confirmation
+                     ))
     if @user.valid?
       @user.save
       session[:user_id] = @user.id

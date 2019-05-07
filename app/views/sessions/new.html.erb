@@ -7,7 +7,9 @@
 
 <%= form_for "/login" do %>
   <%= label :username, "Username" %>
-  <%= text_field_tag :username %>
+  <%= text_field_tag :username %> <br>
+  <%= label :password, "Password" %>
+  <%= password_field_tag :password %> <br>
   <%= submit_tag "Login" %>
 <% end %>
 <%= link_to "Register", new_user_path %>
