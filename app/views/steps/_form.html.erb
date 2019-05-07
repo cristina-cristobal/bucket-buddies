@@ -3,6 +3,11 @@
   <%= f.text_field :name %> <br>
   <%= f.label :description %>
   <%= f.text_area :description %> <br>
-  <%= f.label "" :date_time %>
-  <%= f.text_field :date_time %> <br>
+  <%= f.label :start_time %>
+  <%= f.datetime_select :start_time, order: [:month, :day, :year, :hour, :minute], ampm: true %> <br>
+  <%= f.label :start_time %>
+  <%= f.datetime_select :start_time, order: [:month, :day, :year, :hour, :minute], ampm: true %> <br>
+  <%= f.label :location %>
+  <%= f.text_field :location %> <br>
+  <%= f.submit %>
 <% end %>

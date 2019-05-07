@@ -13,6 +13,7 @@ People trying to accomplish this goal:
 <% end %><br><br>
 
 <% if get_current_user.goals.include?(@goal) %>
+  <%= link_to "Add a step for this goal", new_step_path %>
 <% else %>
 <%= link_to "Add This Goal to Your Bucketlist", add_path(@goal) %>
 
