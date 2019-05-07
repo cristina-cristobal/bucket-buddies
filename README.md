@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+* likes connection isn't working when creating a new goal (fix 5/7)
