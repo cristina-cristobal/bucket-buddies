@@ -8,5 +8,12 @@ People trying to accomplish this goal:
   <% end %> 
 </ul>
 
+<% if flash["notice"] %>
+<%= flash["notice"] %>
+<% end %><br><br>
+
+<% if get_current_user.goals.include?(@goal) %>
+<% else %>
 <%= link_to "Add This Goal to Your Bucketlist", add_path(@goal) %>
 
+<% end %>

@@ -29,8 +29,14 @@ class GoalsController < ApplicationController
 
   def update
     @goal = Goal.find(params[:id])
-    @goal.update(goal_params(likes_attributes: [:description, "timeline(1i)", "timeline(2i)", "timeline(3i)", :user_id]))
-    redirect_to @goal
+    @goal.assign_attributes(goal_params(likes_attributes: [:description, "timeline(1i)", "timeline(2i)", "timeline(3i)", :user_id]))
+    if @goal.valid?
+      @goal.save
+      redirect_to @goal
+    else
+      flash["notice"] = "You have already added this goal"
+      redirect_to @goal
+    end
   end
 
   private
