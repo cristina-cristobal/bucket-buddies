@@ -1,0 +1,7 @@
+Placeholder for <%= @goal.title %>
+
+
+<%= form_for @goal do |g| %>
+<%= render "add", g: g %>
+<%= g.submit %>
+<% end %>
