@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
 
     @user = User.find_by(username: params[:username].downcase)
     if @user && @user.authenticate(params[:password])
+      flash["notice"].clear
       session[:user_id] = @user.id
       redirect_to @user
     else
@@ -20,10 +21,4 @@ class SessionsController < ApplicationController
     session.delete :user_id
     redirect_to login_path
   end
-
-  # private
-  #
-  # def find_user
-  #   @user = User.find(params(:user_id))
-  # end
 end

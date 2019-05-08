@@ -14,12 +14,24 @@ class GoalsController < ApplicationController
   end
 
   def create
-    @goal = Goal.new(goal_params(:title, likes_attributes: [:description, "timeline(1i)", "timeline(2i)", "timeline(3i)", :user_id]))
-    if @goal.valid?
-      @goal.save
-      redirect_to @goal
+    @goal = Goal.find_by(goal_params(:title))
+    if @goal
+      @goal.assign_attributes(goal_params(likes_attributes: [:description, "timeline(1i)", "timeline(2i)", "timeline(3i)", :user_id]))
+      if @goal.valid?
+        @goal.save
+        redirect_to @goal
+      else
+        flash["notice"] = "You have already added this goal"
+        redirect_to @goal
+      end
     else
-      render :new
+      @goal = Goal.new(goal_params(:title, likes_attributes: [:description, "timeline(1i)", "timeline(2i)", "timeline(3i)", :user_id]))
+      if @goal.valid?
+        @goal.save
+        redirect_to @goal
+      else
+        render :new
+      end
     end
   end
 

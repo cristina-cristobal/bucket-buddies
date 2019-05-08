@@ -9,5 +9,7 @@ class Goal < ApplicationRecord
 
   validates :title, presence: true, uniqueness: {case_sensitive: false}
 
-
+  def title=(title)
+    super(title.titleize)
+  end
 end

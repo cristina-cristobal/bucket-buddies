@@ -17,10 +17,10 @@
 body {
     margin-top: 50px;
 }
+
 .field_with_errors {
     color: red;
 }
-
 
 nav {
     position: fixed;
@@ -45,11 +45,19 @@ nav {
     display: inline-block;
 }
 
-.goals-list {
+.goals-list li {
     list-style: none;
+}
+
+.goal-block {
+    text-align: left;
 }
 
 
 .delete-button {
     display: inline;
+}
+
+.notice {
+    color: red;
 }

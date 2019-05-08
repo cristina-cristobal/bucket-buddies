@@ -1,3 +1,8 @@
+  <% if flash["notice"] %>
+<div class="notice">
+    <%= flash["notice"] %>
+</div>
+  <% end %>
 <h1>Details about Goal</h1>
 
 Goal Name: <%= @goal.title %><br><br><br>
@@ -5,12 +10,9 @@ People trying to accomplish this goal:
 <ul>
   <% @goal.users.each do |user| %>
   <li><%= link_to user.username, user_path(user) %></li>
-  <% end %> 
+  <% end %>
 </ul>
 
-<% if flash["notice"] %>
-<%= flash["notice"] %>
-<% end %><br><br>
 
 <% if get_current_user.goals.include?(@goal) %>
   <%= link_to "Add a step for this goal", new_step_path %>
