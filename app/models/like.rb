@@ -2,6 +2,9 @@ class Like < ApplicationRecord
   belongs_to :user
   belongs_to :goal
   has_many :steps
+
+  delegate :title, to: :goal
+
   validates :goal_id, uniqueness: {scope: :user_id}
 
   #convert params from date_select :timeline to DateTime

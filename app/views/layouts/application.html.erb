@@ -8,17 +8,24 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
-<% if session[:user_id] %>
-Welcome <%= get_current_user.username %>!
-<%= link_to "Your Profile", user_path(session[:user_id]) %>
-<%= link_to "Add a Goal", new_goal_path %>
-<%= link_to "Browse Goals", goals_path %> 
-<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
-  <input type=submit value='logout'>
-<% end %>
+<nav>
+  <div class="logo">BucketBuddies</div>
+  <% if session[:user_id] %>
+    <div class="nav-float-right">
+      <%= get_current_user.username %>
+      <%= link_to "Your Profile", user_path(session[:user_id]) %>
+      <%= link_to "Add a Goal", new_goal_path %>
+      <%= link_to "Browse Goals", goals_path %>
+        <div class="logout-button">
+          <%= form_tag controller: 'sessions', action: 'destroy', method: 'post'  do %>
+            <input type=submit value='Logout'>
+          <% end %>
+        </div>
+    </div>
 <% else %>
 <%= link_to "Log In!", login_path %>
 <% end %>
+</nav>
 
 <body>
 <%= yield %>
