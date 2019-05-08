@@ -22,3 +22,7 @@
 
 <!-- 11) Link to step show page from homepage, profile, goal show page
   - list steps on goal show page under users' links -->
+
+
+12) add boolean for public/private for steps
+

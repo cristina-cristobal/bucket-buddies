@@ -6,6 +6,16 @@
 <h1>Details about Goal</h1>
 
 Goal Name: <%= @goal.title %><br><br><br>
+<p>
+  Categories:
+  <% @goal.categories.each do |category| %>
+    <% if category == @goal.categories.last %>
+    <%= category.name %>
+      <% else %>
+    <%= category.name %>,
+      <% end %>
+  <% end %>
+</p>
 People trying to accomplish this goal:
 <ul>
   <% @goal.users.each do |user| %>

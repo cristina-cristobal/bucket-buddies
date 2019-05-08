@@ -13,6 +13,7 @@ class GoalsController < ApplicationController
 
   def new
     @goal = Goal.new
+
     @like = @goal.likes.build
   end
 
@@ -21,12 +22,13 @@ class GoalsController < ApplicationController
     @goal = Goal.find_by(goal_params(:title))
     if @goal
       @goal.assign_attributes(goal_params(likes_attributes: [
-          :description,
-          "timeline(1i)",
-          "timeline(2i)",
-          "timeline(3i)",
-          :user_id
-      ]))
+                                      :description,
+                                      "timeline(1i)",
+                                      "timeline(2i)",
+                                      "timeline(3i)",
+                                      :user_id
+                                  ],
+                                  categories_attributes: [:name]))
       if @goal.valid?
         @goal.save
         redirect_to @goal
@@ -36,12 +38,14 @@ class GoalsController < ApplicationController
       end
     else
       @goal = Goal.new(goal_params(:title, likes_attributes: [
-                                       :description,
-                                       "timeline(1i)",
-                                       "timeline(2i)",
-                                       "timeline(3i)",
-                                       :user_id
-      ]))
+          :description,
+          "timeline(1i)",
+          "timeline(2i)",
+          "timeline(3i)",
+          :user_id
+      ],
+      category_ids: []))
+
       if @goal.valid?
         @goal.save
         redirect_to @goal
