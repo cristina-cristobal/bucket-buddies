@@ -7,10 +7,10 @@
       <% @user.likes.each do |like| %>
         <li>
           <%= link_to like.title, goal_path(like.goal_id), class: "goal-link" %>
-          <%= link_to "Edit", edit_like_path(like), class: "edit-link" %>
-          <%= form_tag like_path(like), method: "DELETE", class: "delete-button" do %>
+          <%= form_tag like_path(like), method: "DELETE", class: "delete-button float-right" do %>
             <%= submit_tag "Delete" %>
           <% end %>
+          <%= link_to "Edit", edit_like_path(like), class: "edit-link float-right" %>
         </li>
       <% end %>
   <% end %>

@@ -41,10 +41,11 @@ nav {
     top: 0;
     left: 0;
     width: 100vw;
+    height: 50 px;
     background-color: mistyrose;
 }
 
-nav a:hover {
+nav a:hover, .logout-button input:hover {
     color: white;
 }
 
@@ -56,15 +57,20 @@ nav a:hover {
 .nav-float-right {
     display: inline-block;
     float: right;
-    margin: 20px 10px 0 0;
+    margin-right: 5px;
+
 }
 
-.logout-button {
+.nav-float-right a, .nav-float-right .logout-button {
+    padding: 15px 5px;
+}
+
+.logout-button, .delete-button {
     display: inline-block;
 
 }
 
-.logout-button input {
+.logout-button input, .delete-button input {
     background: none;
     border: none;
     font: inherit;
@@ -72,19 +78,17 @@ nav a:hover {
     padding: inherit;
 }
 
-.logout-button input:hover {
-    color: white;
-}
 
 .goals-list {
     padding: 0;
     margin: 0;
-    width: 100vw;
     list-style: none;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .goals-list li {
-    padding: 5px;
+    padding: 10px;
     background-color: mistyrose;
 }
 
@@ -92,8 +96,9 @@ ul.goals-list li:nth-child(odd){
     background-color: pink;
 }
 
-.delete-button {
-    display: inline;
+.float-right {
+    float: right;
+    padding: 0 5px;
 }
 
 .notice {
