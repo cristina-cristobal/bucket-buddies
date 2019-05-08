@@ -12,4 +12,10 @@ class Goal < ApplicationRecord
   def title=(title)
     super(title.titleize)
   end
+
+  #class methods
+
+  def self.all_by_likes
+    self.all.sort_by { |goal| goal.likes.length }.reverse
+  end
 end

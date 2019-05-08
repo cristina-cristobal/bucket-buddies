@@ -1,5 +1,7 @@
 class StepsController < ApplicationController
 
+  before_action :authorized
+
   before_action only: [:show, :edit, :update, :destroy]
 
   def show

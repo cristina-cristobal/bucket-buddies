@@ -1,22 +1,24 @@
-  <% if flash["notice"] %>
-<div class="notice">
+<% if flash["notice"] %>
+  <div class="notice">
     <%= flash["notice"] %>
-</div>
-  <% end %>
+  </div>
+<% end %>
 <h1>Details about Goal</h1>
 
 Goal Name: <%= @goal.title %><br><br><br>
 People trying to accomplish this goal:
 <ul>
   <% @goal.users.each do |user| %>
-  <li><%= link_to user.username, user_path(user) %></li>
+    <li><%= link_to user.username, user_path(user) %></li>
   <% end %>
 </ul>
 
 
-<% if get_current_user.goals.include?(@goal) %>
-  <%= link_to "Add a step for this goal", new_step_path %>
-<% else %>
-<%= link_to "Add This Goal to Your Bucketlist", add_path(@goal) %>
+<% if get_current_user %>
+  <% if get_current_user.goals.include?(@goal) %>
+    <%= link_to "Add a step for this goal", new_step_path %>
+  <% else %>
+    <%= link_to "Add This Goal to Your Bucketlist", add_path(@goal) %>
 
+  <% end %>
 <% end %>

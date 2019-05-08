@@ -12,6 +12,8 @@
 
 6) Look up route url
 
-7) Add home page
+~~7) Add home page~~
 
-8) Add user portal
+~~8) Add user portal~~
+
+~~9) add site restrictions~~

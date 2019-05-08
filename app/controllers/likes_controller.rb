@@ -1,5 +1,7 @@
 class LikesController < ApplicationController
 
+  before_action :authorized
+
   def destroy
     @like = Like.find(params[:id])
     @like.destroy

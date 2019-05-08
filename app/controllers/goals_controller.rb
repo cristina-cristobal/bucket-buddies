@@ -1,7 +1,9 @@
 class GoalsController < ApplicationController
 
+  before_action :authorized, except: [:index, :show]
+
   def index
-    @goals = Goal.all
+    @goals = Goal.all_by_likes
   end
 
   def show

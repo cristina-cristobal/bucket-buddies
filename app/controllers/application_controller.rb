@@ -9,4 +9,13 @@ class ApplicationController < ActionController::Base
       @current_user = User.find_by(id: session[:user_id])
     end
   end
+
+  def logged_in?
+    !!get_current_user
+  end
+
+  def authorized
+    redirect_to login_path unless logged_in?
+  end
+
 end

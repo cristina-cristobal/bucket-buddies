@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     @user = User.find_by(username: params[:username].downcase)
     if @user && @user.authenticate(params[:password])
-      flash["notice"].clear
+      flash["notice"].clear if flash["notice"]
       session[:user_id] = @user.id
       redirect_to @user
     else

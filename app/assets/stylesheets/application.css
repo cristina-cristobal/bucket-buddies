@@ -22,12 +22,25 @@ body {
     color: red;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: darkgray;
+}
+
 nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     background-color: mistyrose;
+}
+
+nav a:hover {
+    color: white;
 }
 
 .logo {
