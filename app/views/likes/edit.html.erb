@@ -1,0 +1,6 @@
+<%= @like.title %>
+
+<%= form_for @like do |l| %>
+<%= render "add_steps_form", l: l %>
+<%= l.submit %>
+<% end %>

@@ -2,6 +2,6 @@
   <%= l.label :description %>
   <%= l.text_area :description %><br>
   <%= l.label :timeline, "Complete By" %>
-  <%= l.date_select(:timeline, :order => [:month, :day, :year]) %><br>
+  <%= l.date_select(:timeline, :order => [:month, :day, :year], prompt: true) %><br>
   <%= l.hidden_field :user_id, value: session[:user_id] %>
 <% end %>

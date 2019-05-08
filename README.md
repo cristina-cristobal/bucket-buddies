@@ -17,3 +17,8 @@
 ~~8) Add user portal~~
 
 ~~9) add site restrictions~~
+
+10) Upon signing in, redirect to homepage
+
+11) Link to step show page from homepage, profile, goal show page
+  - list steps on goal show page under users' links

@@ -8,6 +8,7 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.find(params[:id])
+    @my_like = @goal.my_like(session[:user_id])
   end
 
   def new

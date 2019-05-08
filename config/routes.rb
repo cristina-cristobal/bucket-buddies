@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   post "/logout", to: "sessions#destroy"
   get "/goals/:id/add", to: "goals#edit", as: "add"
   get '/', to: "home#home", as: "home"
+  get 'likes/:id/steps/add', to: "likes#edit", as: "add_step"
 end

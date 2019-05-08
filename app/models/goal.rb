@@ -13,6 +13,10 @@ class Goal < ApplicationRecord
     super(title.titleize)
   end
 
+  def my_like(id)
+    self.likes.find{|like| like.user_id == id}
+  end
+
   #class methods
 
   def self.all_by_likes

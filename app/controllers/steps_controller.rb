@@ -2,26 +2,26 @@ class StepsController < ApplicationController
 
   before_action :authorized
 
-  before_action only: [:show, :edit, :update, :destroy]
-
+  before_action :find_step, only: [:show, :edit, :update, :destroy]
+  #
   def show
   end
-
-  def new
-    @step = Step.new
-  end
-
-  def create
-
-  end
-
-  def edit
-
-  end
-
-  def update
-
-  end
+  #
+  # # def new
+  # #   @step = Step.new
+  # # end
+  # #
+  # # def create
+  # #   @step = Step.new
+  # # end
+  #
+  # def edit
+  #
+  # end
+  #
+  # def update
+  #
+  # end
 
   def destroy
 

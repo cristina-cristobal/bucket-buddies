@@ -3,6 +3,8 @@ class Like < ApplicationRecord
   belongs_to :goal
   has_many :steps
 
+  accepts_nested_attributes_for :steps
+
   delegate :title, to: :goal
 
   validates :goal_id, uniqueness: {scope: :user_id}
