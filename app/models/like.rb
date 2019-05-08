@@ -6,12 +6,17 @@ class Like < ApplicationRecord
   accepts_nested_attributes_for :steps
 
   delegate :title, to: :goal
+  delegate :username, to: :user
 
   validates :goal_id, uniqueness: {scope: :user_id}
 
   #convert params from date_select :timeline to DateTime
   def timeline=(params)
     super (DateTime.new(*params.values))
+  end
+
+  def display_count
+    "#{self.steps.length} #{"step".pluralize(self.steps.length)}"
   end
 
   # def goal_title

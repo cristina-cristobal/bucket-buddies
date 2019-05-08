@@ -1,0 +1,23 @@
+Information about <%= @like.title %> for <%= @like.username %>
+
+Name of Goal: <%= @like.title %><br>
+Description: <%= @like.description%><br>
+To Be Completed By: <%= @like.stringify_timeline %><br>
+
+<ul class="steps-list">
+<% @like.steps.each do |step| %>
+<li>
+<p>Name of Step: <%= step.name %></p>
+<p>Location: <%= step.location %></p>
+<p>Start Time: <%= step.start_time %></p>
+<p>End Time: <%= step.end_time %></p>
+<p>Description: <%= step.description %></p>
+<% if step.user == get_current_user %>
+<%= link_to "Edit This Step", edit_step_path(step) %>
+<%= form_tag step_path(step), method: "DELETE" do %>
+  <%= submit_tag "Completed Step" %>
+  <% end %>
+  <% end %>
+</li>
+<% end %>
+</ul>

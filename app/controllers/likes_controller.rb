@@ -1,7 +1,10 @@
 class LikesController < ApplicationController
 
   before_action :authorized
-  before_action :find_like, only: [:edit, :update, :destroy]
+  before_action :find_like, only: [:show, :edit, :update, :destroy]
+
+  def show
+  end
 
 #edit will add instances of steps, not likes (not edit like)
 #see edit in goals controller

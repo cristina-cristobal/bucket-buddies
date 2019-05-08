@@ -79,7 +79,7 @@ nav a:hover, .logout-button input:hover {
 }
 
 
-.goals-list {
+.goals-list, .steps-list {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -87,12 +87,12 @@ nav a:hover, .logout-button input:hover {
     overflow: hidden;
 }
 
-.goals-list li {
+.goals-list li, .steps-list li {
     padding: 10px;
     background-color: mistyrose;
 }
 
-ul.goals-list li:nth-child(odd){
+ul.goals-list li:nth-child(odd), ul.steps-list li:nth-child(odd){
     background-color: pink;
 }
 

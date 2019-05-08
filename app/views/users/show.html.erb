@@ -10,7 +10,8 @@ Email: <%= @user.email %><br>
   <ul class="goals-list"><% @user.likes.each do |like| %>
       <li><%= link_to like.goal.title, goal_path(like.goal)%>
         <p>Description: <%= like.description %></p>
-        <p>To Be Completed By: <%= like.stringify_timeline %>
+        <p>To Be Completed By: <%= like.stringify_timeline %></p>
+        <p><%= link_to like.display_count, like_path(like) %> in progress</p>
           <% if @user == get_current_user %>
             <%= form_tag like_path(like), method: "DELETE" do %>
               <%= submit_tag "Remove this goal from your bucketlist" %>
