@@ -1,6 +1,8 @@
 <%= @like.title %>
 
 <%= form_for @like do |l| %>
-<%= render "add_steps_form", l: l %>
+<%= l.fields_for :steps, @like.steps.build do |f| %>
+<%= render "add_steps_form", f: f %>
+<% end %>
 <%= l.submit %>
 <% end %>

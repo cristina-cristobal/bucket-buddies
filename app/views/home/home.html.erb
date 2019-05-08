@@ -11,6 +11,7 @@
             <%= submit_tag "Delete" %>
           <% end %>
           <%= link_to "Edit", edit_like_path(like), class: "edit-link float-right" %>
+          <p>You currently have <%= link_to like.display_count, like_path(like) %> for this goal</p>
         </li>
       <% end %>
   <% end %>

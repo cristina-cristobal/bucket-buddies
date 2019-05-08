@@ -16,6 +16,8 @@ class StepsController < ApplicationController
   end
 
   def update
+    @step.update(step_params)
+    redirect_to like_path(@step.like)
   end
 
   def destroy
@@ -27,5 +29,9 @@ class StepsController < ApplicationController
 
   def find_step
     @step = Step.find(params[:id])
+  end
+
+  def step_params
+    params.require(:step).permit(:name, :description, :start_time, :end_time, :location)
   end
 end
