@@ -1,6 +1,6 @@
 <h1>Current Goals</h1>
 
-<ul>
+<ul class="goals-list">
   <% @goals.each do |goal| %>
     <li><%= link_to goal.title, goal_path(goal) %></li>
   <% end %>
