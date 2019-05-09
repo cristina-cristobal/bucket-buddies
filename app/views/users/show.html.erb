@@ -11,9 +11,11 @@ Email: <%= @user.email %><br>
           <div class="float-right">
             <% if @user == get_current_user %>
               <%= link_to "Add a step for this goal", edit_like_path(like) %>
-              <%= form_tag like_path(like), method: "DELETE" do %>
-                <%= submit_tag "Remove this goal from your bucketlist" %>
-              <% end %>
+              <div class="delete-button block">
+                <%= form_tag like_path(like), method: "DELETE" do %>
+                  <%= submit_tag "Remove this goal from your bucketlist" %>
+                <% end %>
+              </div>
             <% end %>
           </div>
       <li><%= link_to like.goal.title, goal_path(like.goal)%>

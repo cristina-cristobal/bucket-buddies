@@ -3,7 +3,12 @@ class GoalsController < ApplicationController
   before_action :authorized, except: [:index, :show]
 
   def index
-    @goals = Goal.all_by_likes
+    if params[:goal]
+      @goals = Category.find(goal_params(:category_id)[:category_id]).goals
+
+    else
+      @goals = Goal.all_by_likes
+    end
   end
 
   def show
@@ -22,13 +27,12 @@ class GoalsController < ApplicationController
     @goal = Goal.find_by(goal_params(:title))
     if @goal
       @goal.assign_attributes(goal_params(likes_attributes: [
-                                      :description,
-                                      "timeline(1i)",
-                                      "timeline(2i)",
-                                      "timeline(3i)",
-                                      :user_id
-                                  ],
-                                  categories_attributes: [:name]))
+          :description,
+          "timeline(1i)",
+          "timeline(2i)",
+          "timeline(3i)",
+          :user_id
+      ], categories_attributes: [:name]))
       if @goal.valid?
         @goal.save
         redirect_to @goal
@@ -44,7 +48,7 @@ class GoalsController < ApplicationController
           "timeline(3i)",
           :user_id
       ],
-      category_ids: []))
+                                   category_ids: []))
 
       if @goal.valid?
         @goal.save

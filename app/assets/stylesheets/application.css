@@ -47,6 +47,10 @@ nav a:hover, .logout-button input:hover {
     padding: 15px 5px;
 }
 
+div.block {
+    display: block;
+}
+
 .logout-button, .delete-button {
     display: inline-block;
 

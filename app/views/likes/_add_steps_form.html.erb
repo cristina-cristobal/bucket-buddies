@@ -1,7 +1,7 @@
   <%#= f.label :name, "Name of Step" %>
   <%= f.text_field :name, placeholder: 'Step Name', class: 'form-field'%> <br>
   <%#= f.label :description %>
-  <%= f.text_area :description, placeholder: 'description', class: 'form-field' %> <br>
+  <%= f.text_area :description, placeholder: 'Description', class: 'form-field' %> <br>
   <div class="time-label">
     <div><%= f.label :start_time %></div>
   <%= f.datetime_select :start_time, order: [:month, :day, :year, :hour, :minute], ampm: true, prompt: true %> <br>
@@ -11,4 +11,4 @@
   <%= f.datetime_select :end_time, order: [:month, :day, :year, :hour, :minute], ampm: true, prompt: true %> <br>
   </div>
   <%#= f.label :location %>
-  <%= f.text_field :location, placeholder: 'description', class: 'form-field' %> <br>
+  <%= f.text_field :location, placeholder: 'Location', class: 'form-field' %> <br>
