@@ -3,7 +3,9 @@
 <%= form_for @goal do |g| %>
   <%#= g.label :title %>
   <%= g.text_field :title, placeholder: 'title', class: 'form-field' %><br>
-  <%= render "add", g: g %>
+  <%= g.fields_for :likes, @goal.likes.build do |l| %>
+  <%= render "add", l: l %>
+  <% end %>
   <div class="checkbox-wrapper">
     <%= g.collection_check_boxes :category_ids, Category.all, :id, :name  %>
   </div>

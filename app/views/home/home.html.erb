@@ -10,7 +10,8 @@
           <%= form_tag like_path(like), method: "DELETE", class: "delete-button float-right" do %>
             <%= submit_tag "Delete" %>
           <% end %>
-          <%= link_to "Add a step", edit_like_path(like), class: "edit-link float-right" %>
+          <%= link_to "Add a step", new_like_step_path(like), class: "edit-link float-right" %>
+          <%= link_to "Edit Goal", edit_like_path(like), class: "float-right"  %>
           <p>You currently have <%= link_to like.display_count, like_path(like) %> for this goal</p>
         </li>
       <% end %>

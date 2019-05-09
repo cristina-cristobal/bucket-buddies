@@ -3,20 +3,34 @@ class LikesController < ApplicationController
   before_action :authorized
   before_action :find_like, only: [:show, :edit, :update, :destroy]
 
+  def new
+    @like = Like.new
+    @goal = Goal.find(params[:goal_id])
+  end
+
+  def create
+    @like = Like.new(like_params(:goal_id, :decription, :timeline, :user_id))
+    if @like.valid?
+      @like.save
+      redirect_to @like
+    else
+      render :new
+    end
+  end
+
   def show
   end
 
-#edit will add instances of steps, not likes (not edit like)
-#see edit in goals controller
   def edit
+    @goal = @like.goal
   end
 
 #update creates a step, not a like
   def update
-    @like.assign_attributes(like_params(steps_attributes: [:name, :description, :start_time, :end_time, :location]))
+    @like.assign_attributes(like_params(:description, :timeline))
     if @like.valid?
       @like.save
-      redirect_to step_path(@like.steps.last)
+      redirect_to @like
     else
       render :edit
     end

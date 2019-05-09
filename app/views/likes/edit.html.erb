@@ -1,8 +1,3 @@
 <h1 class="page-title"><%= @like.title %></h1>
 
-<%= form_for @like do |l| %>
-<%= l.fields_for :steps, @like.steps.build do |f| %>
-<%= render "add_steps_form", f: f %>
-<% end %>
-<%= l.submit %>
-<% end %>
+<%= render "form" %>

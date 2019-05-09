@@ -1,7 +1,7 @@
 class GoalsController < ApplicationController
 
   before_action :authorized, except: [:index, :show]
-
+  before_action :find_goal, only: [:edit, :show, :update]
 
   def index
     if params[:goal]
@@ -13,7 +13,6 @@ class GoalsController < ApplicationController
   end
 
   def show
-    @goal = Goal.find(params[:id])
     @my_like = @goal.my_like(session[:user_id])
   end
 
@@ -24,7 +23,6 @@ class GoalsController < ApplicationController
 
   # If a goal gas already been created, update the goal, otherwise create a new goal
   def create
-    params
     @goal = Goal.find_by(goal_params(:title))
     if @goal
       @goal.assign_attributes(goal_params(likes_attributes: [
@@ -38,10 +36,15 @@ class GoalsController < ApplicationController
         redirect_to @goal
       end
     else
-      @goal = Goal.new(goal_params(:title, likes_attributes: [
-          :description, :timeline, :user_id
-      ],
-                                   category_ids: []))
+      @goal = Goal.new(goal_params(
+                           :title,
+                           likes_attributes: [
+                               :description,
+                               :timeline,
+                               :user_id
+                           ],
+                           category_ids: []
+                       ))
 
       if @goal.valid?
         @goal.save
@@ -51,27 +54,29 @@ class GoalsController < ApplicationController
       end
     end
   end
-
-  def edit
-    @goal = Goal.find(params[:id])
-  end
-
-  def update
-    @goal = Goal.find(params[:id])
-    @goal.assign_attributes(goal_params(likes_attributes: [
-        :description, :timeline, :user_id
-    ]))
-    if @goal.valid?
-      @goal.save
-      redirect_to @goal
-    else
-      flash["notice"] = "You have already added this goal"
-      redirect_to @goal
-    end
-  end
+  #
+  # def edit
+  #
+  # end
+  #
+  # def update
+  #   @goal.assign_attributes(goal_params(likes_attributes: [
+  #       :description, :timeline, :user_id
+  #   ]))
+  #   if @goal.valid?
+  #     @goal.save
+  #     redirect_to @goal
+  #   else
+  #     flash["notice"] = "You have already added this goal"
+  #     redirect_to @goal
+  #   end
+  # end
 
   private
 
+  def find_goal
+    @goal = Goal.find(params[:id])
+  end
   def goal_params(*args)
     params.require(:goal).permit(*args)
   end
