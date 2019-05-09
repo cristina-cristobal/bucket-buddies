@@ -25,7 +25,6 @@ class LikesController < ApplicationController
     @goal = @like.goal
   end
 
-#update creates a step, not a like
   def update
     @like.assign_attributes(like_params(:description, :timeline))
     if @like.valid?

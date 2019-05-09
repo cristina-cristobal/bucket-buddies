@@ -9,8 +9,8 @@ To Be Completed By: <%= @like.stringify_timeline %><br>
 <li>
 <p>Name of Step: <%= step.name %></p>
 <p>Location: <%= step.location %></p>
-<p>Start Time: <%= step.start_time %></p>
-<p>End Time: <%= step.end_time %></p>
+<p>Start Time: <%= step.stringify_timeline(step.start_time) %></p>
+<p>End Time: <%= step.stringify_timeline(step.end_time) %></p>
 <p>Description: <%= step.description %></p>
 <% if step.user == get_current_user %>
 <%= link_to "Edit This Step", edit_step_path(step) %>
