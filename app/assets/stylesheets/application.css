@@ -28,7 +28,9 @@ nav {
     background-color: mistyrose;
 }
 
-nav a:hover, .logout-button input:hover {
+a:hover,
+.logout-button input:hover,
+.delete-button input:hover {
     color: white;
 }
 
@@ -96,11 +98,6 @@ div.block {
 a {
     text-decoration: none;
     color: black;
-
-}
-
-a:hover {
-    color: darkgray;
 }
 
 
@@ -118,7 +115,7 @@ a:hover {
     background-color: mistyrose;
 }
 
-ul.goals-list li:nth-child(odd), ul.steps-list li:nth-child(odd){
+ul.goals-list li:nth-child(odd), ul.steps-list li:nth-child(odd) {
     background-color: pink;
 }
 
