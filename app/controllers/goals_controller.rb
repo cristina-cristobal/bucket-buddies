@@ -2,10 +2,11 @@ class GoalsController < ApplicationController
 
   before_action :authorized, except: [:index, :show]
 
+
   def index
     if params[:goal]
-      @goals = Category.find(goal_params(:category_id)[:category_id]).goals
-
+      @category = Category.find(goal_params(:category_id)[:category_id])
+      @goals = @category.goals
     else
       @goals = Goal.all_by_likes
     end
@@ -18,7 +19,6 @@ class GoalsController < ApplicationController
 
   def new
     @goal = Goal.new
-
     @like = @goal.likes.build
   end
 
@@ -27,11 +27,7 @@ class GoalsController < ApplicationController
     @goal = Goal.find_by(goal_params(:title))
     if @goal
       @goal.assign_attributes(goal_params(likes_attributes: [
-          :description,
-          "timeline(1i)",
-          "timeline(2i)",
-          "timeline(3i)",
-          :user_id
+          :description, :timeline, :user_id
       ], categories_attributes: [:name]))
       if @goal.valid?
         @goal.save
@@ -42,11 +38,7 @@ class GoalsController < ApplicationController
       end
     else
       @goal = Goal.new(goal_params(:title, likes_attributes: [
-          :description,
-          "timeline(1i)",
-          "timeline(2i)",
-          "timeline(3i)",
-          :user_id
+          :description, :timeline, :user_id
       ],
                                    category_ids: []))
 
@@ -66,11 +58,7 @@ class GoalsController < ApplicationController
   def update
     @goal = Goal.find(params[:id])
     @goal.assign_attributes(goal_params(likes_attributes: [
-        :description,
-        "timeline(1i)",
-        "timeline(2i)",
-        "timeline(3i)",
-        :user_id
+        :description, :timeline, :user_id
     ]))
     if @goal.valid?
       @goal.save

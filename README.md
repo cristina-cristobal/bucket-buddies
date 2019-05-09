@@ -26,3 +26,8 @@
 
 12) add boolean for public/private for steps
 
+13) Bugs to fix
+  - add steps: date select (must fill out or else bug)
+    - if no selection, default to "eventually"
+  - like: date select (must fill out all fields or else bug)
+    

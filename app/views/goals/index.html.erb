@@ -1,10 +1,11 @@
-<h1>Current Goals</h1>
-
 <div class="sort float-right">
   <%= form_tag goals_path, method: :get do %>
     <%= collection_select :goal, :category_id, Category.all, :id, :name, {prompt: "Sort goals by category"}, { onchange: "this.form.submit();"} %>
   <% end %>
+  <%= link_to "Reset Category Filter", goals_path %>
 </div>
+
+<h1> <%= @category ? @category.name : "All Available Goals" %> </h1>
 
 <ul class="goals-list">
   <% @goals.each do |goal| %>

@@ -5,4 +5,7 @@
   <%= g.text_field :title, placeholder: 'title', class: 'form-field' %><br>
   <%= render "add", g: g %>
   <%= g.submit %>
+  <div class="checkbox-wrapper">
+    <%= g.collection_check_boxes :category_ids, Category.all, :id, :name  %>
+  </div>
 <% end %>

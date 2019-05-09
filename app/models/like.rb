@@ -13,17 +13,12 @@ class Like < ApplicationRecord
 
   #convert params from date_select :timeline to DateTime
   def timeline=(params)
-    byebug
     super (DateTime.new(*params.values)) unless params.nil?
   end
 
   def display_count
     "#{self.steps.length} #{"step".pluralize(self.steps.length)}"
   end
-
-  # def goal_title
-  #   self.goal.title
-  # end
 
   def stringify_timeline
     if self.timeline.nil?
