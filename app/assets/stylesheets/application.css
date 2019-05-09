@@ -17,30 +17,7 @@ body {
     margin-top: 50px;
 }
 
-
-.form-field {
-    font-size: 1.1em;
-    width: 200px;
-    margin: 2.5px 0;
-}
-
-.field_with_errors {
-    color: red;
-}
-
-.text-area { height: 100px }
-
-.welcome { width: 200px }
-
-a {
-    text-decoration: none;
-    color: black;
-
-}
-
-a:hover {
-    color: darkgray;
-}
+/* ### NAVBAR ### */
 
 nav {
     position: fixed;
@@ -64,7 +41,6 @@ nav a:hover, .logout-button input:hover {
     display: inline-block;
     float: right;
     margin-right: 5px;
-
 }
 
 .nav-float-right a, .nav-float-right .logout-button {
@@ -83,6 +59,46 @@ nav a:hover, .logout-button input:hover {
     cursor: pointer;
     padding: inherit;
 }
+
+
+/* ### FORM STYLE ### */
+
+.form-field {
+    font-size: 1.1em;
+    width: 200px;
+    margin: 2.5px 0;
+}
+
+.field_with_errors {
+    color: red;
+}
+
+.text-area { height: 100px }
+
+.time-label {
+    margin: 0 0 7px 0;
+}
+
+/* ### PAGE CONTENT ### */
+
+.page-title {
+    padding-top: 10px;
+    font-size: 30px;
+}
+
+
+.welcome { width: 200px }
+
+a {
+    text-decoration: none;
+    color: black;
+
+}
+
+a:hover {
+    color: darkgray;
+}
+
 
 
 .goals-list, .steps-list {
@@ -108,6 +124,8 @@ ul.goals-list li:nth-child(odd), ul.steps-list li:nth-child(odd){
 }
 
 
+
+/* ### ERRORS ###*/
 
 .notice {
     color: red;

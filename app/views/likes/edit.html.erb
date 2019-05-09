@@ -1,4 +1,4 @@
-<%= @like.title %>
+<h1 class="page-title"><%= @like.title %></h1>
 
 <%= form_for @like do |l| %>
 <%= l.fields_for :steps, @like.steps.build do |f| %>

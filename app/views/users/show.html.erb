@@ -1,6 +1,6 @@
 <h1><%= @user.username %>'s Profile</h1>
 
-First Name: <%= @user.first_name %><br>
+First Name: <%= @user.first_name %>
 Last Name: <%= @user.last_name %><br>
 Bio: <%= @user.bio %><br>
 Email: <%= @user.email %><br>
@@ -8,15 +8,18 @@ Email: <%= @user.email %><br>
 <div class="goal-block">
   <h2><%= @user.first_name %>'s Goals:</h2>
   <ul class="goals-list"><% @user.likes.each do |like| %>
+          <div class="float-right">
+            <% if @user == get_current_user %>
+              <%= link_to "Add a step for this goal", edit_like_path(like) %>
+              <%= form_tag like_path(like), method: "DELETE" do %>
+                <%= submit_tag "Remove this goal from your bucketlist" %>
+              <% end %>
+            <% end %>
+          </div>
       <li><%= link_to like.goal.title, goal_path(like.goal)%>
         <p>Description: <%= like.description %></p>
         <p>To Be Completed By: <%= like.stringify_timeline %></p>
         <p><%= link_to like.display_count, like_path(like) %> in progress</p>
-          <% if @user == get_current_user %>
-            <%= form_tag like_path(like), method: "DELETE" do %>
-              <%= submit_tag "Remove this goal from your bucketlist" %>
-            <% end %>
-          <% end %>
       </li>
     <% end %>
   </ul>
