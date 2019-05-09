@@ -14,8 +14,15 @@
           <p>You currently have <%= link_to like.display_count, like_path(like) %> for this goal</p>
         </li>
       <% end %>
+    </ul>
+  <% else %>
+
+    <h2 class="portal-subheader">Your bucketlist is empty</h2>
+    <ul class="goals-list">
+      <li><%= link_to "Add a goal", new_goal_path %></li>
+      <li><%= link_to "Browse Goals", goals_path %></li>
+    </ul>
   <% end %>
-  </ul>
 
 
 </div>

@@ -17,14 +17,20 @@ body {
     margin-top: 50px;
 }
 
-.page-content {
-    width: 95vw;
-    margin: auto;
+
+.form-field {
+    font-size: 1.1em;
+    width: 200px;
+    margin: 2.5px 0;
 }
 
 .field_with_errors {
     color: red;
 }
+
+.text-area { height: 100px }
+
+.welcome { width: 200px }
 
 a {
     text-decoration: none;
@@ -100,6 +106,8 @@ ul.goals-list li:nth-child(odd), ul.steps-list li:nth-child(odd){
     float: right;
     padding: 0 5px;
 }
+
+
 
 .notice {
     color: red;

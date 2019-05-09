@@ -1,16 +1,16 @@
-<h1>Login</h1>
-
-<% if flash["notice"] %>
-  <div class="error"><%= flash["notice"] %></div>
-
-<% end %>
-
-<%= form_for "/login" do %>
-  <%= label :username, "Username" %>
-  <%= text_field_tag :username %> <br>
-  <%= label :password, "Password" %>
-  <%= password_field_tag :password %> <br>
-  <%= submit_tag "Login" %>
-<% end %>
-
-<%= link_to "Register", new_user_path %>
+<div id="login" class="home-form">
+  <h1>Login</h1>
+  <% if flash["notice"] %>
+    <div class="error"><%= flash["notice"] %></div>
+  <% end %>
+  <%= form_for "/login" do %>
+    <%= text_field_tag :username, nil,  placeholder: "Username", class: 'form-field' %> <br>
+    <%= password_field_tag :password, nil, placeholder: "Password", class: 'form-field' %> <br>
+    <%= submit_tag "Login" %>
+  <% end %>
+</div>
+  <h2>- or -</h2>
+<div id="register" class="home-form">
+  <h1>Register</h1>
+  <%= render "/users/form", user: @user %>
+</div>

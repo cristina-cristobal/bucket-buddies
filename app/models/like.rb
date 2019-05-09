@@ -10,9 +10,11 @@ class Like < ApplicationRecord
 
   validates :goal_id, uniqueness: {scope: :user_id}
 
+
   #convert params from date_select :timeline to DateTime
   def timeline=(params)
-    super (DateTime.new(*params.values))
+    byebug
+    super (DateTime.new(*params.values)) unless params.nil?
   end
 
   def display_count

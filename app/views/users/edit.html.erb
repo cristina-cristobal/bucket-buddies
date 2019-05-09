@@ -1,11 +1,14 @@
-Welcome <%= @user.username %>!
-
-<%= form_for @user do |f| %>
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %> <br>
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %> <br>
-  <%= f.label :bio %>
-  <%= f.text_area :bio %> <br>
-  <%= f.submit %>
-<% end %>
+<div class="welcome">
+  <p>Hi <%= @user.username %>! What would you like to share about yourself?</p>
+</div>
+<div class="form-wrapper">
+  <%= form_for @user do |f| %>
+    <%#= f.label :first_name %>
+    <%= f.text_field :first_name, placeholder: "First Name", class: 'form-field'%> <br>
+    <%#= f.label :last_name %>
+    <%= f.text_field :last_name, placeholder: "Last Name", class: 'form-field'%> <br>
+    <%#= f.label :bio %>
+    <%= f.text_area :bio, placeholder: "Tell us about yourself!", class: 'form-field text-area'%> <br>
+    <%= f.submit %>
+  <% end %>
+</div>

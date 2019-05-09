@@ -1,9 +1,11 @@
 
 <%= g.fields_for :likes, @goal.likes.build do |l| %>
-  <%= l.label :description %>
-  <%= l.text_area :description %><br>
+  <%#= l.label :description %>
+  <%= l.text_area :description, placeholder: 'description', class: 'form-field' %><br>
   <%= l.label :timeline, "Complete By" %>
-  <%= l.date_select(:timeline, :order => [:month, :day, :year], prompt: true) %><br>
+  <%= l.date_select(:timeline, :order => [:month, :day, :year], default: 0, prompt: true) %><br>
   <%= l.hidden_field :user_id, value: session[:user_id] %>
 <% end %>
-<%= g.collection_check_boxes :category_ids, Category.all, :id, :name %>
+<div class="checkbox-wrapper">
+  <%= g.collection_check_boxes :category_ids, Category.all, :id, :name  %>
+</div>
