@@ -13,7 +13,7 @@ class Like < ApplicationRecord
 
   #convert params from date_select :timeline to DateTime
   def timeline=(params)
-    super (DateTime.new(*params.values)) unless params.nil?
+    super (DateTime.new(*params.sort.to_h.values)) unless params.values.any?(nil)
   end
 
   def display_count
