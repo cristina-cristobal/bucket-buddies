@@ -1,2 +1,9 @@
 <h1 class="page-title">Register!</h1>
+<ul class="errors">
+  <% if @user.errors.any? %>
+    <% @user.errors.full_messages.each do |message|%>
+      <li><%= message %></li>
+    <% end %>
+  <% end %>
+</ul>
 <%= render 'form', user: @user %>

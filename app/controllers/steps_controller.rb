@@ -15,6 +15,7 @@ class StepsController < ApplicationController
   end
 
   def create
+    byebug
     @step = Step.new(step_params)
     if @step.valid?
       @step.save

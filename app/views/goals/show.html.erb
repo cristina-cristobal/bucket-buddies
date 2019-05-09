@@ -26,6 +26,7 @@ People trying to accomplish this goal:
 
 <% if get_current_user %>
   <% if get_current_user.goals.include?(@goal) %>
+    <%= link_to "Edit this goal", edit_like_path(@my_like) %> <br>
     <%= link_to "Add a step for this goal", new_like_step_path(@my_like) %>
   <% else %>
     <%= link_to "Add This Goal to Your Bucketlist", new_goal_like_path(@goal) %>

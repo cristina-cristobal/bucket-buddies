@@ -75,9 +75,6 @@ div.block {
     margin: 2.5px 0;
 }
 
-.field_with_errors {
-    color: red;
-}
 
 .text-area { height: 100px }
 
@@ -130,4 +127,16 @@ ul.goals-list li:nth-child(odd), ul.steps-list li:nth-child(odd) {
 
 .notice {
     color: red;
+}
+
+div.field_with_errors {margin: 0;}
+.field_with_errors input {
+    border: solid red;
+
+}
+
+.errors {
+    color: red;
+    list-style: none;
+    padding: 0;
 }
