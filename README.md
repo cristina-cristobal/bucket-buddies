@@ -31,3 +31,4 @@
     - if no selection, default to "eventually"
   - like: date select (must fill out all fields or else bug)
     
+14) add edit for like.

@@ -24,6 +24,7 @@ class GoalsController < ApplicationController
 
   # If a goal gas already been created, update the goal, otherwise create a new goal
   def create
+    params
     @goal = Goal.find_by(goal_params(:title))
     if @goal
       @goal.assign_attributes(goal_params(likes_attributes: [

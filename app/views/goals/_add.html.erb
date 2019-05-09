@@ -3,6 +3,6 @@
   <%#= l.label :description %>
   <%= l.text_area :description, placeholder: 'description', class: 'form-field' %><br>
   <%= l.label :timeline, "Complete By" %>
-  <%= l.date_select(:timeline, :order => [:month, :day, :year], prompt: true) %><br>
+  <%= l.date_field :timeline, min: DateTime.now %>
   <%= l.hidden_field :user_id, value: session[:user_id] %>
 <% end %>

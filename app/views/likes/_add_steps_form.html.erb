@@ -4,11 +4,11 @@
   <%= f.text_area :description, placeholder: 'Description', class: 'form-field' %> <br>
   <div class="time-label">
     <div><%= f.label :start_time %></div>
-  <%= f.datetime_select :start_time, order: [:month, :day, :year, :hour, :minute], ampm: true, prompt: true %> <br>
+  <%= f.datetime_field :start_time, min: DateTime.now %> <br>
   </div>
   <div class="time-label">
     <div><%= f.label :end_time %></div>
-  <%= f.datetime_select :end_time, order: [:month, :day, :year, :hour, :minute], ampm: true, prompt: true %> <br>
+  <%= f.datetime_field :end_time, min: DateTime.now %> <br>
   </div>
   <%#= f.label :location %>
   <%= f.text_field :location, placeholder: 'Location', class: 'form-field' %> <br>
