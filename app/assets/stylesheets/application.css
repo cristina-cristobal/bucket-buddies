@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+    font-family: 'Oxygen', sans-serif;
+}
  .image-gallery {
    /* display: grid;
    grid-column-gap: 0; */
@@ -40,6 +44,7 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
+    min-width: 700px;
     width: 100vw;
     height: 50px;
     background-color: mistyrose;
@@ -87,20 +92,41 @@ div.block {
 /* ### FORM STYLE ### */
 
 .form-wrapper {
+    border-radius: 5px;
+    padding: 1px 0 10px 10px;
+    background-color: mistyrose;
     max-width: 500px
 }
 
+
 .form-field {
     font-size: 1.1em;
-    width: 200px;
-    margin: 2.5px 0;
+    width: 95%;
+    margin: 2.5px;
 }
 
+.checkbox-wrapper {
+    margin: auto;
+    width: 95%;
+    background-color: pink;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.checkbox-wrapper label {
+    display: inline-block;
+}
 
 .text-area { height: 100px }
 
 .time-label {
     margin: 0 0 7px 0;
+}
+
+.submit {
+    display: inline-block;
+
 }
 
 /* ### PAGE CONTENT ### */
@@ -118,6 +144,12 @@ a {
     color: black;
 }
 
+div.edit-link, div.sort{
+    margin: 5px 0;
+    background-color: pink;
+    border-radius: 5px;
+    padding: 5px 7px;
+}
 
 
 .goals-list, .steps-list {
@@ -140,6 +172,12 @@ ul.goals-list li:nth-child(odd), ul.steps-list li:nth-child(odd) {
 .float-right {
     float: right;
     padding: 0 5px;
+}
+
+.show {
+    background-color: mistyrose;
+    border-radius: 5px;
+
 }
 
 

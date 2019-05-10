@@ -3,33 +3,35 @@
     <%= flash["notice"] %>
   </div>
 <% end %>
-<h1>Details about Goal</h1>
+<h1><%= @goal.title %></h1>
 
-Goal Name: <%= @goal.title %><br><br><br>
-<p>
-  Categories:
-  <% @goal.categories.each do |category| %>
-    <% if category == @goal.categories.last %>
-    <%= category.name %>
-      <% else %>
-    <%= category.name %>,
-      <% end %>
+ <h4>
+   Categories:
+   <% @goal.categories.each do |category| %>
+     <% if category == @goal.categories.last %>
+       <%= category.name %>
+     <% else %>
+       <%= category.name %>,
+     <% end %>
+   <% end %>
+ </h4>
+<div class="show">
+  People trying to accomplish this goal:
+  <ul class="goals-list">
+    <% @goal.users.each do |user| %>
+      <li><%= link_to user.username, user_path(user) %></li>
+    <% end %>
+  </ul>
+
+
+  <% if get_current_user %>
+    <% if get_current_user.goals.include?(@goal) %>
+      <%= link_to "Edit this goal", edit_like_path(@my_like) %> <br>
+      <%= link_to "Add a step for this goal", new_like_step_path(@my_like) %>
+    <% else %>
+      <%= link_to "Add This Goal to Your Bucketlist", new_goal_like_path(@goal) %>
+
+    <% end %>
   <% end %>
-</p>
-People trying to accomplish this goal:
-<ul>
-  <% @goal.users.each do |user| %>
-    <li><%= link_to user.username, user_path(user) %></li>
-  <% end %>
-</ul>
 
-
-<% if get_current_user %>
-  <% if get_current_user.goals.include?(@goal) %>
-    <%= link_to "Edit this goal", edit_like_path(@my_like) %> <br>
-    <%= link_to "Add a step for this goal", new_like_step_path(@my_like) %>
-  <% else %>
-    <%= link_to "Add This Goal to Your Bucketlist", new_goal_like_path(@goal) %>
-
-  <% end %>
-<% end %>
+</div>
