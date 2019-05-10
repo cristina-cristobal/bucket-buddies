@@ -137,6 +137,7 @@ div.block {
 
 .time-label {
     margin: 0 0 7px 0;
+    display: inline-block;
 }
 
 .submit {
@@ -159,7 +160,7 @@ a {
     color: black;
 }
 
-div.edit-link, div.sort{
+div.edit-link, div.sort, div.add-link{
     margin: 5px 0;
     background-color: #94ACA9;
     border-radius: 5px;
