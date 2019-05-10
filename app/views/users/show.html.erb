@@ -1,5 +1,5 @@
 <h1><%= @user.username %>'s Profile</h1>
-<div class="edit-link">
+<div class="edit-link float-right">
   <%= link_to "Edit Profile", edit_user_path(@user) if @user == get_current_user %>
 </div>
 
