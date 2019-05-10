@@ -1,10 +1,10 @@
 <div class="page-title"> <%= @step.like.title %></div>
 <ul class="steps-list">
-<li><%= @step.name %></li>
-<li><%= @step.description %></li>
-<li><%= @step.stringify_timeline(@step.start_time) %></li>
-<li><%= @step.stringify_timeline(@step.end_time) %></li>
-<li><%= @step.location %></li>
+<li>Name of Step: <%= @step.name %></li>
+<li>Description: <%= @step.description %></li>
+<li>Start Time: <%= @step.stringify_timeline(@step.start_time) %></li>
+<li>End Time: <%= @step.stringify_timeline(@step.end_time) %></li>
+<li>Location: <%= @step.location %></li>
 <li><% if @step.user == get_current_user %>
   <%= link_to "Edit this step", edit_step_path(@step)  %></li>
 <% end %>
