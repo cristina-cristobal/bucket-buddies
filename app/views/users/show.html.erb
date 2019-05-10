@@ -3,7 +3,7 @@
   <%= link_to "Edit Profile", edit_user_path(@user) if @user == get_current_user %>
 </div>
 
-First Name: <%= @user.first_name %>
+First Name: <%= @user.first_name %><br>
 Last Name: <%= @user.last_name %><br>
 Bio: <%= @user.bio %><br>
 Email: <%= @user.email %><br>
