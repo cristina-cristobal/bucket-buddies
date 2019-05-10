@@ -1,5 +1,13 @@
 <h1 class="portal-title">Hi <%= @user.first_name ? @user.first_name : @user.username %></h1>
 
+<div class="image-gallery">
+      <img class='gallery-img' src="assets/alhambra" alt="alhambra">
+      <img class='gallery-img' src="assets/grand_canyon_hike" alt="grand canyon">
+      <img class='gallery-img' src="assets/skydiving" alt="skydiving">
+      <img class='gallery-img' src="assets/pasta.jpg" alt="pasta">
+      <img class='gallery-img' src="assets/white_temple.jpg" alt="white temple">
+</div>
+
 <div class="current-goals">
   <% if @user.likes.present? %>
     <h2 class="portal-subheader">Here are your current goals:</h2>
