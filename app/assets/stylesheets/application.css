@@ -24,7 +24,7 @@
    display: flex;
    flex-wrap: nowrap;
    width: 100vw;
-   overflow: hidden; 
+   overflow: hidden;
  }
 
  .gallery-img{
