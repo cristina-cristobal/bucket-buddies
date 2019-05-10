@@ -35,7 +35,7 @@
 }
 
 body {
-    margin-top: 50px;
+    margin-top: 75px;
 }
 
 /* ### NAVBAR ### */
@@ -46,8 +46,26 @@ nav {
     left: 0;
     min-width: 700px;
     width: 100vw;
-    height: 50px;
-    background-color: mistyrose;
+    height: 60px;
+    background-color: #a4cecd;
+}
+
+img.logo {
+    padding: 0px;
+    height: 90%;
+}
+
+div.logo {
+    display: inline;
+    height: inherit;
+}
+
+.logo-text {
+    position: absolute;
+    font-size: 40px;
+    display: inline-block;
+    left: 40px;
+    top: 5px;
 }
 
 a:hover,
@@ -56,10 +74,6 @@ a:hover,
     color: white;
 }
 
-.logo {
-    display: inline;
-    font-size: 40px
-}
 
 .nav-float-right {
     display: inline-block;
@@ -68,7 +82,8 @@ a:hover,
 }
 
 .nav-float-right a, .nav-float-right .logout-button {
-    padding: 15px 5px;
+    display: inline-block;
+    padding: 20px 5px;
 }
 
 div.block {
@@ -94,7 +109,7 @@ div.block {
 .form-wrapper {
     border-radius: 5px;
     padding: 1px 0 10px 10px;
-    background-color: mistyrose;
+    background-color: #a4cecd;
     max-width: 500px
 }
 
@@ -108,7 +123,7 @@ div.block {
 .checkbox-wrapper {
     margin: auto;
     width: 95%;
-    background-color: pink;
+    background-color: #94ACA9;
     border-radius: 5px;
     display: grid;
     grid-template-columns: auto auto auto;
@@ -146,7 +161,7 @@ a {
 
 div.edit-link, div.sort{
     margin: 5px 0;
-    background-color: pink;
+    background-color: #94ACA9;
     border-radius: 5px;
     padding: 5px 7px;
 }
@@ -162,11 +177,11 @@ div.edit-link, div.sort{
 
 .goals-list li, .steps-list li {
     padding: 10px;
-    background-color: mistyrose;
+    background-color: #a4cecd;
 }
 
 ul.goals-list li:nth-child(odd), ul.steps-list li:nth-child(odd) {
-    background-color: pink;
+    background-color: #94ACA9;
 }
 
 .float-right {
@@ -175,7 +190,7 @@ ul.goals-list li:nth-child(odd), ul.steps-list li:nth-child(odd) {
 }
 
 .show {
-    background-color: mistyrose;
+    background-color: #a4cecd;
     border-radius: 5px;
 
 }

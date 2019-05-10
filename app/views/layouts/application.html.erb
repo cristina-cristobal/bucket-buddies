@@ -10,7 +10,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 <nav>
-  <div class="logo"><%= link_to 'BucketBuddies', home_path %></div>
+  <div class="logo"><%= link_to image_tag('buddy', class: "logo"), home_path %></div>
+  <div class="logo-text"><%= link_to "BucketBuddies", home_path %></div>
   <% if session[:user_id] %>
     <div class="nav-float-right">
       <%= link_to get_current_user.username, home_path %>
