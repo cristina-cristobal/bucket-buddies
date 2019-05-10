@@ -11,7 +11,7 @@ class LikesController < ApplicationController
   end
 
   def create
-    @like = Like.new(like_params(:goal_id, :decription, :timeline, :user_id))
+    @like = Like.new(like_params(:goal_id, :description, :timeline, :user_id))
     if @like.valid?
       @like.save
       redirect_to @like

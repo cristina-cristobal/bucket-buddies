@@ -5,9 +5,8 @@ Information about <%= @like.title %> for <%= @like.username %> <br>
 </div>
 
 Name of Goal: <%= @like.title %><br>
-Description: <%= @like.description%><br>
+Description: <%= @like.description %><br>
 To Be Completed By: <%= @like.stringify_timeline %><br>
-
 <ul class="steps-list">
 <% @like.steps.each do |step| %>
 <li>
@@ -25,3 +24,6 @@ To Be Completed By: <%= @like.stringify_timeline %><br>
 </li>
 <% end %>
 </ul>
+<% if @like.user == get_current_user %>
+<div class="add-link"><%= link_to "Add a step to this goal", new_like_step_path(@like) %></div>
+<% end %>
