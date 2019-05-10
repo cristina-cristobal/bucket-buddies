@@ -13,6 +13,7 @@ class GoalsController < ApplicationController
   end
 
   def show
+    render :index unless @goal
     @my_like = @goal.my_like(session[:user_id])
   end
 
@@ -21,9 +22,9 @@ class GoalsController < ApplicationController
     @like = @goal.likes.build
   end
 
-  # If a goal gas already been created, update the goal, otherwise create a new goal
+  # If a goal gas already been created, like the goal, otherwise create a new goal
   def create
-    @goal = Goal.find_by(goal_params(:title))
+    @goal = Goal.find_by(title: goal_params(:title)[:title].titleize)
     if @goal
       @goal.assign_attributes(goal_params(likes_attributes: [
           :description, :timeline, :user_id
@@ -54,23 +55,6 @@ class GoalsController < ApplicationController
       end
     end
   end
-  #
-  # def edit
-  #
-  # end
-  #
-  # def update
-  #   @goal.assign_attributes(goal_params(likes_attributes: [
-  #       :description, :timeline, :user_id
-  #   ]))
-  #   if @goal.valid?
-  #     @goal.save
-  #     redirect_to @goal
-  #   else
-  #     flash["notice"] = "You have already added this goal"
-  #     redirect_to @goal
-  #   end
-  # end
 
   private
 

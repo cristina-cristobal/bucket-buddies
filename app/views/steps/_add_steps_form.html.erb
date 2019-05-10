@@ -1,3 +1,4 @@
+<%= render '/sessions/errors', instance: @step %>
 <%= form_for @step do |f| %>
   <%= f.hidden_field :like_id, value: @like.id %>
   <%= f.text_field :name, placeholder: 'Step Name', class: 'form-field'%> <br>

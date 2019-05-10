@@ -1,3 +1,4 @@
+<%= render '/sessions/errors', instance: @like %>
 <%= form_for @like do |l| %>
   <%= l.hidden_field :goal_id, value: @goal.id %>
   <%= render "/goals/add", l: l %>

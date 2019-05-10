@@ -1,7 +1,7 @@
 <div id="login" class="home-form">
   <h1>Login</h1>
   <% if flash["notice"] %>
-    <div class="error"><%= flash["notice"] %></div>
+    <div class="errors"><%= flash["notice"] %></div>
   <% end %>
   <%= form_for "/login" do %>
     <%= text_field_tag :username, nil,  placeholder: "Username", class: 'form-field' %> <br>

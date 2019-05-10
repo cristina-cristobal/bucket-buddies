@@ -1,3 +1,4 @@
+<%= render '/sessions/errors', instance: @user %>
 <%= form_for user do |f| %>
   <div><%= f.text_field :username, placeholder: 'Username', class: 'form-field' %></div>
   <div><%= f.text_field :email, placeholder: "Email Address", class: 'form-field' %></div>

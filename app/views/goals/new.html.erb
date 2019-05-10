@@ -1,5 +1,6 @@
 <h1>Add a New Goal</h1>
 
+<%= render '/sessions/errors', instance: @goal %>
 <%= form_for @goal do |g| %>
   <%#= g.label :title %>
   <%= g.text_field :title, placeholder: 'title', class: 'form-field' %><br>

@@ -3,6 +3,8 @@ class LikesController < ApplicationController
   before_action :authorized
   before_action :find_like, only: [:show, :edit, :update, :destroy]
 
+
+
   def new
     @like = Like.new
     @goal = Goal.find(params[:goal_id])

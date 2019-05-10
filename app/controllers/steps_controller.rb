@@ -15,11 +15,13 @@ class StepsController < ApplicationController
   end
 
   def create
-    byebug
     @step = Step.new(step_params)
     if @step.valid?
       @step.save
       redirect_to @step
+    else
+      @like = Like.find(step_params[:like_id])
+      render :new
     end
   end
 
@@ -31,8 +33,14 @@ class StepsController < ApplicationController
   end
 
   def update
-    @step.update(step_params)
+    @step.assign_attributes(step_params)
+    if @step.valid?
+      @step.save
     redirect_to @step
+    else
+      @like = Like.find(step_params[:like_id])
+      render :edit
+    end
   end
 
   def destroy

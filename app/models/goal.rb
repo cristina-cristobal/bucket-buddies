@@ -7,8 +7,7 @@ class Goal < ApplicationRecord
 
   accepts_nested_attributes_for :likes
 
-  validates :title, presence: true, uniqueness: {case_sensitive: false}
-
+  validates :title, :categories, presence: true
   def title=(title)
     super(title.titleize)
   end

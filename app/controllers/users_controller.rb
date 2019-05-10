@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def index
+    render :new
+  end
+
   def create
     @user = User.new(user_params(
                          :username,

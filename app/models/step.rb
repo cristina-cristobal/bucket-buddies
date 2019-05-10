@@ -1,6 +1,8 @@
 class Step < ApplicationRecord
   belongs_to :like
 
+  validates :name, presence: true
+
   delegate :user, to: :like
 
   def stringify_timeline(time)

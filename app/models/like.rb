@@ -1,7 +1,7 @@
 class Like < ApplicationRecord
   belongs_to :user
   belongs_to :goal
-  has_many :steps
+  has_many :steps, dependent: :destroy
 
   accepts_nested_attributes_for :steps
 

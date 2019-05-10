@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-
     @user = User.find_by(username: params[:username].downcase)
     if @user && @user.authenticate(params[:password])
       flash["notice"].clear if flash["notice"]
@@ -13,6 +12,7 @@ class SessionsController < ApplicationController
       redirect_to home_path
     else
       flash["notice"] = "Incorrect username or password!"
+      @user = User.new
       render :new
     end
   end
