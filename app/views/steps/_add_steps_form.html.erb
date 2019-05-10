@@ -1,16 +1,18 @@
-<%= render '/sessions/errors', instance: @step %>
-<%= form_for @step do |f| %>
-  <%= f.hidden_field :like_id, value: @like.id %>
-  <%= f.text_field :name, placeholder: 'Step Name', class: 'form-field'%> <br>
-  <%= f.text_area :description, placeholder: 'Description', class: 'form-field' %> <br>
-  <div class="time-label">
-    <div><%= f.label :start_time %></div>
-  <%= f.datetime_field :start_time %> <br>
-  </div>
-  <div class="time-label">
-    <div><%= f.label :end_time %></div>
-  <%= f.datetime_field :end_time %> <br>
-  </div>
-  <%= f.text_field :location, placeholder: 'Location', class: 'form-field' %> <br>
-<%= f.submit %>
-<% end %>
+<div class="form-wrapper">
+  <%= render '/sessions/errors', instance: @step %>
+  <%= form_for @step do |f| %>
+    <%= f.hidden_field :like_id, value: @like.id %>
+    <%= f.text_field :name, placeholder: 'Step Name', class: 'form-field'%> <br>
+    <%= f.text_area :description, placeholder: 'Description', class: 'form-field' %> <br>
+    <div class="time-label">
+      <div><%= f.label :start_time %></div>
+      <%= f.datetime_field :start_time %> <br>
+    </div>
+    <div class="time-label">
+      <div><%= f.label :end_time %></div>
+      <%= f.datetime_field :end_time %> <br>
+    </div>
+    <%= f.text_field :location, placeholder: 'Location', class: 'form-field' %> <br>
+    <%= f.submit %>
+  <% end %>
+</div>

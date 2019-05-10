@@ -32,5 +32,5 @@ Email: <%= @user.email %><br>
     </ul>
   </div>
   <% else %>
-  <%= link_to "Add a goal", new_goal_path if @user == get_current_user %>
+  <div class="add-link"><%= link_to "Add a goal", new_goal_path if @user == get_current_user %></div>
 <% end %>
