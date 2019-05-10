@@ -1,14 +1,16 @@
 <h1>Add a New Goal</h1>
 
-<%= render '/sessions/errors', instance: @goal %>
-<%= form_for @goal do |g| %>
-  <%#= g.label :title %>
-  <%= g.text_field :title, placeholder: 'title', class: 'form-field' %><br>
-  <%= g.fields_for :likes, @goal.likes.build do |l| %>
-  <%= render "add", l: l %>
-  <% end %>
-  <div class="checkbox-wrapper">
-    <%= g.collection_check_boxes :category_ids, Category.all, :id, :name  %>
-  </div>
-  <%= g.submit %>
+<div class="form-wrapper">
+  <%= render '/sessions/errors', instance: @goal %>
+  <%= form_for @goal do |g| %>
+    <%#= g.label :title %>
+    <%= g.text_field :title, placeholder: 'title', class: 'form-field' %><br>
+    <%= g.fields_for :likes, @goal.likes.build do |l| %>
+      <%= render "add", l: l %>
+    <% end %>
+    <div class="checkbox-wrapper">
+      <%= g.collection_check_boxes :category_ids, Category.all, :id, :name  %>
+    </div>
+    <%= g.submit %>
+</div>
 <% end %>
