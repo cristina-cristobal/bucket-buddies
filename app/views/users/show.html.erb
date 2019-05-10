@@ -8,10 +8,11 @@ Last Name: <%= @user.last_name %><br>
 Bio: <%= @user.bio %><br>
 Email: <%= @user.email %><br>
 
-<div class="goal-block">
-  <h2><%= @user.first_name %>'s Goals:</h2>
-  <ul class="goals-list"><% @user.likes.each do |like| %>
-      <li><%= link_to like.goal.title, goal_path(like.goal)%>
+<% if @user.goals.present? %>
+  <div class="goal-block">
+    <h2><%= @user.first_name %>'s Goals:</h2>
+    <ul class="goals-list"><% @user.likes.each do |like| %>
+        <li><%= link_to like.goal.title, goal_path(like.goal)%>
           <div class="float-right">
             <% if @user == get_current_user %>
               <%= link_to "Edit this goal", edit_like_path(like) %> <br>
@@ -23,10 +24,13 @@ Email: <%= @user.email %><br>
               </div>
             <% end %>
           </div>
-        <p>Description: <%= like.description %></p>
-        <p>To Be Completed By: <%= like.stringify_timeline %></p>
-        <p><%= link_to like.display_count, like_path(like) %> in progress</p>
-      </li>
-    <% end %>
-  </ul>
-</div>
+          <p>Description: <%= like.description %></p>
+          <p>To Be Completed By: <%= like.stringify_timeline %></p>
+          <p><%= link_to like.display_count, like_path(like) %> in progress</p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <% else %>
+  <%= link_to "Add a goal", new_goal_path if @user == get_current_user %>
+<% end %>
